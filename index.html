@@ -1,166 +1,254 @@
-<!DOCTYPE html>
+<!Doctype HTML5!>
 <html>
-<head>
-    <title>Telephone Office - Affordable VoIP Telephone Services</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-</head>
-<body>
-
-<!-- Side Navigation -->
-<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
-    <h1 class="w3-xxxlarge w3-text-theme">Telephone Office</h1>
-    <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
-    <a href="#index.html" class="w3-bar-item w3-button">Home</a>
-    <a href="#plans" class="w3-bar-item w3-button">Plans</a>
-    <a href="#features" class="w3-bar-item w3-button">Features</a>
-    <a href="#contactus" class="w3-bar-item w3-button">Contact Us</a>
-</nav>
-
-<!-- Header -->
-<header class="w3-container w3-theme w3-padding" id="myHeader">
-    <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
-    <div class="w3-center">
-        <h4>Your Affordable VoIP Telephone Solution</h4>
-        <h1 class="w3-xxxlarge w3-animate-bottom">Telephone Office</h1>
-        <div class="w3-padding-32">
-            <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="openPopup(1)" style="font-weight:900;">Get Started for £9.50/month</button>
-        </div>
-    </div>
-</header>
-
-<!-- Modal -->
-<div id="planPopup" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-top">
-        <header class="w3-container w3-theme-l1">
-            <span onclick="closePopup()" class="w3-button w3-display-topright">×</span>
-            <h4 id="planName">Plan Name</h4>
-            <h5 id="planPrice">Plan Price</h5>
-        </header>
-        <div class="w3-padding" id="planFeatures">
-            <!-- Plan features will be displayed here -->
-        </div>
-        <footer class="w3-container w3-theme-l1">
-            <p>Call Now! 0330 043 6996</p>
-        </footer>
-    </div>
-</div>
-
-<!-- Rest of your content -->
-
-<div class="w3-container">
-    <hr>
-    <div id="features" class="w3-center">
-        <h2>Why Choose Telephone Office?</h2>
-        <p>We offer exceptional VoIP telephone services for your business needs.</p>
-    </div>
-
-    <div class="w3-row-padding w3-center w3-margin-top">
-        <div class="w3-third">
-            <div class="w3-card w3-container" style="min-height:460px">
-                <h3>Unlimited Calls</h3><br>
-                <i class="fa fa-phone w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-                <p>Make unlimited voice calls to grow your business.</p>
-                <p>£9.50/month</p>
-                <button class="w3-button w3-theme" onclick="openPopup(1)">Get Started</button>
-            </div>
-        </div>
-
-        <div class="w3-third">
-            <div class="w3-card w3-container" style="min-height:460px">
-                <h3>Phone System</h3><br>
-                <i class="fa fa-briefcase w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-                <p>Empower your business with a powerful phone system.</p>
-                <p>£15.00/month</p>
-                <button class="w3-button w3-theme" onclick="openPopup(2)">Get Started</button>
-            </div>
-        </div>
-
-        <div class="w3-third">
-            <div class="w3-card w3-container" style="min-height:460px">
-                <h3>Century</h3><br>
-                <i class="fa fa-building w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-                <p>100 Years of VoIP Phone Service.</p>
-                <p>£11,000/Century</p>
-                <button class="w3-button w3-theme" onclick="openPopup(3)">Get Started</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer id="contactus" class="w3-container w3-theme-dark w3-padding-16">
-    <h3>Contact Us</h3>
-    <p>If you have any questions or need assistance, please don't hesitate to reach out to us.</p>
-    <p>Email: info@telephoneoffice.com</p>
-    <p>Phone: 0330 043 6996</p>
-    <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
-        <span class="w3-text w3-theme-light w3-padding">Go To Top</span>
-        <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
-      <i class="fa fa-chevron-circle-up"></i></span></a>
-    </div>
-
-    <p>Remember to check out our <a href="w3css_references.asp" class="w3-btn w3-theme-light" target="_blank">Documentation</a></p>
-</footer>
-
-<!-- JavaScript to handle the pop-up and switching between plans -->
-<script>
-    var currentPlan = 1;
-
-    function openPopup(planNumber) {
-        currentPlan = planNumber;
-        updatePopupContent();
-        document.getElementById('planPopup').style.display = 'block';
-    }
-
-    function closePopup() {
-        document.getElementById('planPopup').style.display = 'none';
-    }
-
-    function updatePopupContent() {
-        var planNameElement = document.getElementById('planName');
-        var planPriceElement = document.getElementById('planPrice');
-        var planFeaturesElement = document.getElementById('planFeatures');
-
-        switch (currentPlan) {
-            case 1:
-                planNameElement.textContent = 'Unlimited Calls';
-                planPriceElement.textContent = '£9.50/month';
-                planFeaturesElement.innerHTML = '<p>Feature 1: Unlimited Calling</p><p>Feature 2: Use with any SIP Device</p><p>Feature 3: Free Voicemail (hosted Voicemail is £2.00 extra to acount for the storge of the messages)</p>';
-                break;
-            case 2:
-                planNameElement.textContent = 'Phone System';
-                planPriceElement.textContent = '£15.00/month';
-                planFeaturesElement.innerHTML = '<p>Feature A</p><p>Feature B</p><p>Feature C</p>';
-                break;
-            case 3:
-                planNameElement.textContent = 'Century';
-                planPriceElement.textContent = '£11,000/Century';
-                planFeaturesElement.innerHTML = '<p>Feature X</p><p>Feature Y</p><p>Feature Z</p>';
-                break;
-        }
-    }
+	
+	<head>
+		
+		<style>
+			* {
+				font-family: Segoe UI
+			}
+		</style>
+		
+		
+		<meta charset="utf-8">
+	
+		<link rel="icon" href="https://telephoneoffice.co.uk/favicon.svg">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="preload" as="image" href="https://telephoneoffice.co.uk/Logo.svg">
+		
+		<link href="0.3371a523.css" rel="stylesheet">
+	
+		<link href="2.db2153a8.css" rel="stylesheet">
+	
+		<link href="Service_Plans.fc156bad.css" rel="stylesheet">
+	
+		<link href="Page_Header.d61a66bc.css" rel="stylesheet"><title>Telephone Office</title><meta name="description" content="Telephone Office is your affordable and reliable VoIP service provider dedicated to simplifying communication for businesses and individuals. With years of experience, we offer secure, affordable, and top-notch VoIP services to meet your needs.">
+	
+	<meta name="keywords" content="home, telephone, office, voip">
+	
+	<meta name="robots" content="index, follow">
+	
+	<meta property="og:title" content="Telephone Office">
+	
+	<meta property="og:description" content="Telephone Office is your affordable and reliable VoIP service provider dedicated to simplifying communication for businesses and individuals. With years of experience, we offer secure, affordable, and top-notch VoIP services to meet your needs.">
+	
+	<meta property="og:image" content="https://telephoneoffice.co.uk/Logo.svg">
+	
+	<meta name="twitter:card" content="summary">
+	
+	<meta name="twitter:title" content="Telephone Office"><meta name="twitter:description" content="Telephone Office is your affordable and reliable VoIP service provider dedicated to simplifying communication for businesses and individuals. With years of experience, we offer secure, affordable, and top-notch VoIP services to meet your needs.">
+	
+	<meta name="twitter:image" content="https://telephoneoffice.co.uk/Logo.svg">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/nodes/0.32455855.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/scheduler.7c4769d9.js"><link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/index.6f7182ce.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/nodes/1.f2e94188.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/singletons.7d3d3f1d.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/nodes/2.8582a464.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/Service_Plans.2e534f7a.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/Page_Header.2388ec61.js">
+	
+	<link rel="modulepreload" as="script" crossorigin="" href="https://telephoneoffice.co.uk/_app/immutable/chunks/index.c5f1d078.js">
+	
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		
+		<div>
+			<nav class="svelte-12u7op3">
+				<img alt="Telephone Office Logo" src="https://telephoneoffice.co.uk/Logo.svg" class="svelte-12u7op3"> 
+				<details class="svelte-12u7op3" data-svelte-h="svelte-redhag">
+					<summary class="svelte-12u7op3">
+						
+					<svg data-icon-type="closed" height="30" width="30px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="svelte-12u7op3"><use href="https://telephoneoffice.co.uk/icons.svg#burger">
+						</use>
+						</svg> 
+						
+						<svg data-icon-type="opened" height="30" width="30px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="svelte-12u7op3">
+						
+						<use href="https://telephoneoffice.co.uk/icons.svg#cross">
+							
+						</use>
+						</svg>
+					</summary>
+				</details> 
+				
+				<section class="svelte-12u7op3">
+				
+				<a href="/" class="svelte-12u7op3" data-svelte-h="svelte-2duxfv"></a> 
+				
+				<a href="/services" class="svelte-12u7op3" data-svelte-h="svelte-hnebkw"></a> 
+				
+				<a href="/plans" class="svelte-12u7op3" data-svelte-h="svelte-up16ds"></a> 
+				
+				<a href="/contact" class="svelte-12u7op3" data-svelte-h="svelte-1v7zvgo"></a></section></nav> 
+			
+			<section class="content svelte-91try7"> 
+			
+			<div class="page-containor svelte-nf3sn"><header class="page-head svelte-132vo6l">
+			
+			<h1 data-svelte-h="svelte-i5ip0v">Welcome to Telephone Office</h1> 
+			
+			<div data-svelte-h="svelte-1xwpch7">Your Reliable VoIP Service Provider</div> 
+			
+			<a href="#about-us" class="svelte-nf3sn" data-svelte-h="svelte-1mgu720">Learn More</a></header> 
+			
+			<main class="svelte-nf3sn">
+			
+			<article class="introduction svelte-nf3sn" id="about-us" data-svelte-h="svelte-7jeyc5"><section class="svelte-nf3sn"><div>
+			
+			<h2>Who Are We</h2>
+			
+                    We are Telephone Office, your trusted VoIP service provider. With years of experience, we are dedicated to offering top-notch communication solutions to businesses and individuals.</div> <div><h2>What We Do</h2>
+                    At Telephone Office, we provide secure, reliable, and affordable VoIP services. Our mission is to simplify communication for our customers, offering unlimited calling plans and top-of-the-line VoIP hardware.</div> <div>
+			<h2>How We Can Help You</h2>
+			
+                    Our services are designed to save you money while ensuring crystal-clear voice quality. Whether you're a small business looking to cut communication costs or an individual seeking affordable calling options, we have the solution for you.</div>
+			
+			</section> 
+			
+			<div class="video-containor svelte-nf3sn">
+			
+			<video autoplay="" loop="" muted="" controls="" src="https://telephoneoffice.co.uk/Introduction.mp4" class="svelte-nf3sn"></video></div></article> 
+			
+			<h2 class="svelte-b7fbds" data-svelte-h="svelte-nu7tb1">Get Started</h2> 
+			
+			
+			
+				<section class="plans svelte-b7fbds">
+  <article class="svelte-b7fbds">
+    <header class="svelte-b7fbds" data-svelte-h="svelte-u9ddt1">Home Office</header>
+    <section class="price svelte-b7fbds">11</section>
+    <script async
+  src="https://js.stripe.com/v3/buy-button.js">
 </script>
 
-<!-- Script for Sidebar, Tabs, Accordions, Progress bars, and slideshows -->
-<script>
-    // Side navigation
-    function w3_open() {
-        var x = document.getElementById("mySidebar");
-        x.style.width = "100%";
-        x.style.textAlign = "center";
-        x.style.fontSize = "40px";
-        x.style.paddingTop = "10%";
-        x.style.display = "block";
-    }
+<stripe-buy-button
+  buy-button-id="buy_btn_1O2N9hGEyC5xKzNmWKBYk7TL"
+  publishable-key="pk_live_51O0OsYGEyC5xKzNmSAU5Qd6ipls0UI0KukSQnkpLazNAy7nwSLZErliDC88efOPdBfqSZrGrixCaAWyhHAeni2yW00ivQX9W5d"
+>
+</stripe-buy-button>
+    <section class="benifits svelte-b7fbds" data-svelte-h="svelte-530shz">
+       <div data-valid="true" class="svelte-b7fbds">Unlimited Calls</div>
+      <div data-valid="true" class="svelte-b7fbds">1 Included Number</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Blocking</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Screening</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Forwarding</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Customer Support</div>
+      <div data-valid="true" class="svelte-b7fbds">Supports Hardware and Software Phones</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Speaking Clock</div>
+      <div data-valid="true" class="svelte-b7fbds">Multiple Numbers / Addons</div>
+      <div data-valid="false" class="svelte-b7fbds">Free Call Recording</div>
+      <div data-valid="false" class="svelte-b7fbds">Multi-Level Voice Menus</div>
+      <div data-valid="false" class="svelte-b7fbds">Call Queues</div>
+      <div data-valid="false" class="svelte-b7fbds">Free User Admin Panel</div>
+		<div data-valid="false" class="svelte-b7fbds">Call Back Requests</div>
+      <div data-valid="false" class="svelte-b7fbds">Remote Voicemail</div>
+    </section>
+  </article>
 
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-    }
+  <article class="svelte-b7fbds">
+    <header class="svelte-b7fbds" data-svelte-h="svelte-soxcwq">Medium Business</header>
+    <section class="price svelte-b7fbds">15</section>
+    <script async
+  src="https://js.stripe.com/v3/buy-button.js">
 </script>
 
-</body>
-</html>
+<stripe-buy-button
+  buy-button-id="buy_btn_1O2N6eGEyC5xKzNmOa0pFxAS"
+  publishable-key="pk_live_51O0OsYGEyC5xKzNmSAU5Qd6ipls0UI0KukSQnkpLazNAy7nwSLZErliDC88efOPdBfqSZrGrixCaAWyhHAeni2yW00ivQX9W5d"
+>
+</stripe-buy-button>
+    <section class="benifits svelte-b7fbds" data-svelte-h="svelte-pyh5b1">
+      <div data-valid="true" class="svelte-b7fbds">Unlimited Calls</div>
+      <div data-valid="true" class="svelte-b7fbds">1 Included Number</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Blocking</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Screening</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Forwarding</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Customer Support</div>
+      <div data-valid="true" class="svelte-b7fbds">Supports Hardware and Software Phones</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Speaking Clock</div>
+      <div data-valid="true" class="svelte-b7fbds">Multiple Numbers / Addons (Reduced)</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Call Recording</div>
+      <div data-valid="true" class="svelte-b7fbds">Basic Voice Menus</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Queues</div>
+      <div data-valid="false" class="svelte-b7fbds">Free User Admin Panel</div>
+		<div data-valid="false" class="svelte-b7fbds">Call Back Requests</div>
+		<div data-valid="false" class="svelte-b7fbds">Remote Voicemail</div>
+		
+    </section>
+		
+    
+  </article>
+
+  <article class="svelte-b7fbds">
+    <header class="svelte-b7fbds" data-svelte-h="svelte-soxcwq">Enterprise Business</header>
+    <section class="price svelte-b7fbds">25</section>
+    <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1O2N3BGEyC5xKzNmPQ552Vm2"
+  publishable-key="pk_live_51O0OsYGEyC5xKzNmSAU5Qd6ipls0UI0KukSQnkpLazNAy7nwSLZErliDC88efOPdBfqSZrGrixCaAWyhHAeni2yW00ivQX9W5d"
+>
+</stripe-buy-button>
+    <section class="benifits svelte-b7fbds" data-svelte-h="svelte-pyh5b1">
+      <div data-valid="true" class="svelte-b7fbds">Unlimited Calls</div>
+      <div data-valid="true" class="svelte-b7fbds">3 Included Numbers</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Blocking</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Screening</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Forwarding</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Customer Support</div>
+      <div data-valid="true" class="svelte-b7fbds">Supports Hardware and Software Phones</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Speaking Clock</div>
+      <div data-valid="true" class="svelte-b7fbds">Multiple Numbers / Addons (Reduced)</div>
+      <div data-valid="true" class="svelte-b7fbds">Free Call Recording</div>
+      <div data-valid="true" class="svelte-b7fbds">Multi-Level Voice Menus</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Queues</div>
+      <div data-valid="true" class="svelte-b7fbds">Call Back Requests</div>
+      <div data-valid="true" class="svelte-b7fbds">Free User Admin Panel</div>
+		<div data-valid="true" class="svelte-b7fbds">Remote Voicemail</div>
+    </section>
+  </article>
+</section>
+		<section>
+				<h2>Pay Annually, Save Big!</h2>
+			<p>At Telephone Office, we're making it easier and more affordable for you. When you opt for our annual subscription, you enjoy the following advantages:<br><br>
+<b>
+Discounted Rate:</b> Pay for the year upfront and save big. Get the same great service at a reduced rate!
+<br><br>
+				<b>
+Full-Year Coverage:</b> No more monthly bills to worry about. Secure a full year of service without interruptions.
+<br><br>
+To take advantage of this exclusive offer, call us at <b><a href="tel:03300433191">0330 043 3191</a></b>. Make your life simpler and your service more cost-effective with Telephone Office today.</p>
+				</section>		
+				
+			
+			</main>
+			</div>
+			</section> 
+			
+			<footer class="svelte-1s5s5cb" data-svelte-h="svelte-1tcclet">
+				
+				<h2 class="svelte-1s5s5cb">Contact Us</h2> 
+			
+			<p class="svelte-1s5s5cb">Have questions or need assistance? Reach out to us!</p> <p class="svelte-1s5s5cb">Phone: <a href="tel:03300435141" class="svelte-1s5s5cb">0330 043 5141</a></p> 
+			
+			<p class="svelte-1s5s5cb">E-mail: <a href="mailto:info@telephoneoffice.co.uk" class="svelte-1s5s5cb">info@telephoneoffice.co.uk</a></p> 
+			
+			<div class="copyright svelte-1s5s5cb">© 2023 Telephone Office. All rights reserved</div> 
+			<br><br>
+			</footer> 
+			
+			<div id="svelte-announcer" aria-live="assertive" aria-atomic="true" style="position: absolute; left: 0px; top: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); overflow: hidden; white-space: nowrap; width: 1px; height: 1px;"></div></div>
+	
+
+</body></html>

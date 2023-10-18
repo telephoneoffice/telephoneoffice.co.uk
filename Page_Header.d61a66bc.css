@@ -1,0 +1,13 @@
+header.svelte-132vo6l {
+font-size:clamp(18px,1rem,20px);
+background-color:#22a8f0;
+justify-content:center;
+box-sizing:border-box;
+flex-direction:column;
+color:#fff;
+text-align:center;
+height:var(--header-height, unset);
+align-items:center;
+min-height:50px;
+display:flex;gap:20px
+}
