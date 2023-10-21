@@ -1,0 +1,18 @@
+Introducing Admin by Telephone office,
+
+Admin allows you to modify, and view what you are your team are doing,
+Use admin to access call recordings, Voicemail messages and options.
+
+
+
+How to Login,
+
+login at telephoneoffice.co.uk/acc
+Then Find to the login box,
+enter your username, which is usually the last 4 digits of your Telephone Office phone Number
+and password, if it's your first time login in, please contact support for your password, on 0330 043 5141
+then click the login button,
+
+If you are unable to login via the login box, please visit the login page directly, http://voip1.telephoneoffice.co.uk/ucp/
+and repeat steps above
+
